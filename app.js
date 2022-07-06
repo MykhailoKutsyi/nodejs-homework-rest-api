@@ -25,4 +25,14 @@ app.use((err, req, res, next) => {
   });
 });
 
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
+
+const { DB_HOST } = process.env;
+
+mongoose
+  .connect(DB_HOST)
+  .then(() => console.log("Database connection successful"))
+  .catch((err) => console.log(err));
 module.exports = app;
