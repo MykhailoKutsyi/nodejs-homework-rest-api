@@ -3,6 +3,7 @@
 
 const { Schema, model } = require("mongoose");
 const Joi = require("joi");
+const emailRegexp = /^\S+@\S+\.\S+$/;
 
 const contactSchema = Schema(
   {
@@ -16,7 +17,7 @@ const contactSchema = Schema(
       lowercase: true,
       unique: true,
       required: "Email address is required",
-      match: [/^\S+@\S+\.\S+$/, "Please fill a valid email address"],
+      match: [emailRegexp, "Please fill a valid email address"],
     },
     phone: {
       type: String,
@@ -25,6 +26,10 @@ const contactSchema = Schema(
     favorite: {
       type: Boolean,
       default: false,
+    },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
     },
   },
   { versionKey: false, timestamps: true }
