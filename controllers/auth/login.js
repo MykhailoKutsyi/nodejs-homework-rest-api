@@ -29,25 +29,6 @@ const login = async (req, res) => {
   res.json({
     token,
   });
-  function foo(a) {
-    let returnValue = "";
-    try {
-      if (a === "bar") {
-        throw new Error("qux");
-      }
-      returnValue = "try";
-      console.log(returnValue);
-    } catch (error) {
-      returnValue = "catch";
-      console.log(returnValue);
-    } finally {
-      return (returnValue = "finally");
-      //   console.log(returnValue);
-    }
-    return returnValue;
-  }
-  console.log(foo("bar"));
-  console.log(foo("zzz"));
 };
 
 module.exports = login;
