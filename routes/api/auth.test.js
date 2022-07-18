@@ -59,6 +59,5 @@ describe("test auth routes", () => {
     expect(loginResponse.statusCode).toBe(200);
     const { body } = loginResponse;
     expect(body.token).toBeTruthy();
-    //awd
   });
 });
